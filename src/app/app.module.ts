@@ -11,7 +11,6 @@ import { ReportesComponent } from './business/reportes/reportes.component';
 import { ProductosComponent } from './business/productos/productos.component';
 import { UsuariosComponent } from './business/usuarios/usuarios.component';
 import { ProveedoresComponent } from './business/proveedores/proveedor-list/proveedores.component';
-import { LayoutComponent } from './shared/layout/layout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProveedorFormComponent } from './business/proveedores/proveedor-form/proveedor-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -33,7 +32,6 @@ import { EstatusOrdenFormComponent } from './business/catalogos/estatusOrden/est
     ProductosComponent,
     UsuariosComponent,
     ProveedoresComponent,
-    LayoutComponent,
     ProveedorFormComponent,
     CategoriasFormComponent,
     CategoriasListComponent,
