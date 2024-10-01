@@ -1,70 +1,62 @@
-  <!-- Main -->
-  <main id="main">
+<main id="main">
 
-    <!-- Section - Bootstrap Brain Component -->
-    <!-- Breadcrumb -->
-    <section class="py-3 py-md-4 py-xl-5 bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h1 class="h4">Validation</h1>
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb m-0 fs-7">
-                <li class="breadcrumb-item"><a class="link-primary text-decoration-none" href="index.html">Home</a></li>
-                
-                <li class="breadcrumb-item"><a class="link-primary text-decoration-none" routerLink="/categorias">Categorias</a></li>
-                
-                <li class="breadcrumb-item active" aria-current="page">{{ isEdit ? 'Editar Categoria' : 'Crear Categoria' }}</li>
-              </ol>
-            </nav>
-          </div>
+  <!-- Section - Bootstrap Brain Component -->
+  <!-- Breadcrumb -->
+  <section class="py-3 py-md-4 py-xl-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="h4">Categorias</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb m-0 fs-7">
+              <li class="breadcrumb-item"><a class="link-primary text-decoration-none" href="index.html">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Categorias</li>
+            </ol>
+          </nav>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Section - Bootstrap Brain Component -->
-    <section class="pb-3 pb-md-4 pb-xl-5 bg-light">
-      <div class="container">
-        <div class="row gy-3 gy-md-4 justify-content-center">
-          <div class="col-12 col-lg-6">
-            <div class="row gy-3 gy-md-4">
-              <div class="col-12">
-                <div class="card widget-card border-light shadow-sm mx-auto">
-                    <div class="card-header bg-transparent p-4 border-light-subtle">
-                    <h5 class="card-title widget-card-title m-0">{{ isEdit ? 'Editar Categoria' : 'Crear Categoria' }}</h5>
-                  </div>
-                  <div class="card-body p-4">
-                    <form class="row g-3" [formGroup]="categoriaForm" (ngSubmit)="onSubmit()">
-                        <div class="form-group">
-                            <label for="nombreCategoria">Nombre</label>
-                            <input id="nombreCategoria" type="text" formControlName="nombreCategoria" class="form-control">
-                            <div *ngIf="categoriaForm.get('nombreCategoria')?.invalid && categoriaForm.get('nombreCategoria')?.touched" class="text-danger">
-                              El nombre de la categoria es obligatorio
-                            </div>
-                          </div>
-                      
-                          <div class="form-group">
-                            <label for="descripcionCategoria">Descripción</label>
-                            <input id="descripcionCategoria" type="text" formControlName="descripcionCategoria" class="form-control">
-                            <div *ngIf="categoriaForm.get('descripcionCategoria')?.invalid && categoriaForm.get('descripcionCategoria')?.touched" class="text-danger">
-                              La descripción de la categoria es obligatoria
-                            </div>
-                          </div>
-                      
-                      <div class="col-12">
-                        <button type="submit" class="btn btn-primary" [disabled]="categoriaForm.invalid">
-                            {{ isEdit ? 'Actualizar' : 'Crear' }}
-                          </button>
-                      </div>
-
-                    </form>
-                  </div>
+  <!-- Section - Bootstrap Brain Component -->
+  <section class="pb-3 pb-md-4 pb-xl-5 bg-light">
+    <div class="container">
+      <div class="row gy-3 gy-md-4 justify-content-center">
+        <div class="col-12 col-lg-8">
+          <div class="row gy-3 gy-md-4">
+            <div class="col-12">
+              <div class="card widget-card border-light shadow-sm">
+                <div class="card-header bg-transparent p-4 border-light-subtle d-flex align-items-center">
+                  <h5 class="card-title widget-card-title m-0">Listado de Categorias</h5>
+                  <button routerLink="/categorias/create" class="btn btn-primary ms-auto"><i class="bi bi-folder-plus"> Nuevo</i></button>
+                </div>
+                <div class="card-body p-4">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col" colspan="2">Opciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let categoria of categorias">
+                        <th scope="row"> {{ categoria.idCategoria }} </th>
+                        <td> {{ categoria.nombreCategoria }} </td>
+                        <td> {{ categoria.descripcionCategoria }} </td>
+                        <td><a [routerLink]="['/categorias/edit', categoria.idCategoria]" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a></td>
+                        <td><button (click)="onDelete(categoria.idCategoria)" class="btn btn-danger"><i class="bi bi-trash"></i></button></td>    
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+</main>
