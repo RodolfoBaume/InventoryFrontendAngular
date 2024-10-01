@@ -1,0 +1,62 @@
+  <!-- Main -->
+  <main id="main">
+
+    <!-- Section - Bootstrap Brain Component -->
+    <!-- Breadcrumb -->
+    <section class="py-3 py-md-4 py-xl-5 bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="h4">Validation</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb m-0 fs-7">
+                <li class="breadcrumb-item"><a class="link-primary text-decoration-none" href="index.html">Home</a></li>
+                
+                <li class="breadcrumb-item"><a class="link-primary text-decoration-none" routerLink="/estatusOrdenes">Estatus</a></li>
+                
+                <li class="breadcrumb-item active" aria-current="page">{{ isEdit ? 'Editar Estatus' : 'Crear Estatus' }}</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section - Bootstrap Brain Component -->
+    <section class="pb-3 pb-md-4 pb-xl-5 bg-light">
+      <div class="container">
+        <div class="row gy-3 gy-md-4 justify-content-center">
+          <div class="col-12 col-lg-6">
+            <div class="row gy-3 gy-md-4">
+              <div class="col-12">
+                <div class="card widget-card border-light shadow-sm mx-auto">
+                    <div class="card-header bg-transparent p-4 border-light-subtle">
+                    <h5 class="card-title widget-card-title m-0">{{ isEdit ? 'Editar Estatus' : 'Crear Estatus' }}</h5>
+                  </div>
+                  <div class="card-body p-4">
+                    <form class="row g-3" [formGroup]="estatusOrdenForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="estatusOrden">Descripción</label>
+                            <input id="estatusOrden" type="text" formControlName="estatusOrden" class="form-control">
+                            <div *ngIf="estatusOrdenForm.get('estatusOrden')?.invalid && estatusOrdenForm.get('estatusOrden')?.touched" class="text-danger">
+                              El nombre del estatus es obligatorio
+                            </div>
+                          </div>
+                      
+                      <div class="col-12">
+                        <button type="submit" class="btn btn-primary" [disabled]="estatusOrdenForm.invalid">
+                            {{ isEdit ? 'Actualizar' : 'Crear' }}
+                          </button>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>

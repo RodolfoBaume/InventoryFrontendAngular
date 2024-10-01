@@ -1,0 +1,66 @@
+<main id="main">
+
+    <!-- Section - Bootstrap Brain Component -->
+    <!-- Breadcrumb -->
+    <section class="py-3 py-md-4 py-xl-5 bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="h4">Proveedores</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb m-0 fs-7">
+                <li class="breadcrumb-item"><a class="link-primary text-decoration-none" href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Proveedores</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section - Bootstrap Brain Component -->
+    <section class="pb-3 pb-md-4 pb-xl-5 bg-light">
+      <div class="container">
+        <div class="row gy-3 gy-md-4 justify-content-center">
+          <div class="col-12 col-lg-8">
+            <div class="row gy-3 gy-md-4">
+              <div class="col-12">
+                <div class="card widget-card border-light shadow-sm">
+                  <div class="card-header bg-transparent p-4 border-light-subtle d-flex align-items-center">
+                    <h5 class="card-title widget-card-title m-0">Listado de Proveedores</h5>
+                    <button routerLink="/proveedores/create" class="btn btn-primary ms-auto"><i class="bi bi-folder-plus"> Nuevo</i></button>
+                  </div>
+                  <div class="card-body p-4">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Dirección</th>
+                          <th scope="col">Teléfono</th>
+                          <th scope="col">Email</th>
+                          <th scope="col" colspan="2">Opciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let proveedor of proveedores">
+                          <th scope="row"> {{ proveedor.idProveedor }} </th>
+                          <td> {{ proveedor.nombreProveedor }} </td>
+                          <td> {{ proveedor.direccionProveedor }} </td>
+                          <td> {{ proveedor.telefonoProveedor }} </td>
+                          <td> {{ proveedor.emailProveedor }} </td>
+                          <td><a [routerLink]="['/proveedores/edit', proveedor.idProveedor]" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a></td>
+                          <td><button (click)="onDelete(proveedor.idProveedor)" class="btn btn-danger"><i class="bi bi-trash"></i></button></td>    
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>

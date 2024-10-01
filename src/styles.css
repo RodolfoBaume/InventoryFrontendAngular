@@ -1,1 +1,78 @@
 /* You can add global styles to this file, and also import other style files */
+.ng-valid:not(form).ng-touched {
+    border-left: 5px solid "#42A948";
+  }
+  
+  .ng-valid:not(form).ng-touched {
+    border-left: 5px solid "#a94442";
+  }
+  
+  @font-face {
+    font-family: "GMX-Black";
+    src: url("./assets/fonts/GMX-Black.ttf");
+  }
+  
+  @font-face {
+    font-family: "GMX-Regular";
+    src: url("./assets/fonts/GMX-Regular.ttf");
+  }
+  
+  @font-face {
+    font-family: "GMX-Bold";
+    src: url("./assets/fonts/GMX-Bold.ttf");
+  }
+  
+  header,
+  footer, 
+  aside {
+    background-color: #6b1b36;
+  }
+  
+  .card-header,
+  .card-footer,
+  .back-beige {
+    background-color: #d4c19c !important;
+    color: #6b1b36 !important;
+  }
+  
+  .btn-primary {
+    background-color: #6b1b36 !important;
+    color: white !important;
+    border: none !important;
+  }
+  
+  .btn-warning {
+    background-color: #d4c19c !important;
+    color: white !important;
+    border: none !important;
+  }
+  
+  .btn-secondary {
+    background-color: #0c231e !important;
+    color: white !important;
+    border: none !important;
+  }
+  
+  .txt-bg-beige {
+    background-color: #d4c19c;
+  }
+  
+  .txt-bg-verde,
+  .badge {
+    background-color: #0c231e;
+  }
+  
+  h2,
+  h3,
+  h4,
+  thead th,
+  .fw-bolder {
+    color: #6b1b36 !important;
+    font-family: "GMX-Black";
+  }
+  
+  td,
+  p {
+    font-family: "GMX-Regular";
+  }
+  
