@@ -8,27 +8,27 @@ import { EstatusOrden } from '../models/estatusOrden.modelo';
 })
 export class EstatusOrdenService {
 
-  private url = 'http://localhost:8080/api/estatusOrdenes';
+  private apiUrl = 'http://localhost:8080/api/estatusOrdenes';
 
   constructor(private http: HttpClient) { }
 
   getEstatusOrden(): Observable<EstatusOrden[]> {
-    return this.http.get<EstatusOrden[]>(this.url);
+    return this.http.get<EstatusOrden[]>(this.apiUrl);
   }
 
   getEstatusOrdenById(id: number): Observable<EstatusOrden> {
-    return this.http.get<EstatusOrden>(`${this.url}/${id}`);
+    return this.http.get<EstatusOrden>(`${this.apiUrl}/${id}`);
   }
 
   createEstatusOrden(estatusOrden: EstatusOrden): Observable<EstatusOrden> {
-    return this.http.post<EstatusOrden>(this.url, estatusOrden);
+    return this.http.post<EstatusOrden>(this.apiUrl, estatusOrden);
   }
 
   updateEstatusOrden(id: number, estatusOrden: EstatusOrden): Observable<EstatusOrden> {
-    return this.http.put<EstatusOrden>(`${this.url}/${id}`, estatusOrden);
+    return this.http.put<EstatusOrden>(`${this.apiUrl}/${id}`, estatusOrden);
   }
 
   deleteEstatusOrden(id: number): Observable<EstatusOrden> {
-    return this.http.delete<EstatusOrden>(`${this.url}/${id}`);
+    return this.http.delete<EstatusOrden>(`${this.apiUrl}/${id}`);
   }
 }

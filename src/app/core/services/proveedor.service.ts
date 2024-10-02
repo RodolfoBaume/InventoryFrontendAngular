@@ -7,28 +7,28 @@ import { Proveedor } from '../models/proveedor.modelo';
   providedIn: 'root'
 })
 export class ProveedorService {
-  private url = 'http://localhost:8080/api/proveedores';
+  private apiUrl = 'http://localhost:8080/api/proveedores';
 
   constructor(private http: HttpClient) { }
 
   getProveedores(): Observable<Proveedor[]> {
-    return this.http.get<Proveedor[]>(this.url);
+    return this.http.get<Proveedor[]>(this.apiUrl);
   }
 
   getProveedorById(id: number): Observable<Proveedor> {
-    return this.http.get<Proveedor>(`${this.url}/${id}`);
+    return this.http.get<Proveedor>(`${this.apiUrl}/${id}`);
   }
 
   createProveedor(proveedor: Proveedor): Observable<Proveedor> {
-    return this.http.post<Proveedor>(this.url, proveedor);
+    return this.http.post<Proveedor>(this.apiUrl, proveedor);
   }
 
   updateProveedor(id: number, proveedor: Proveedor): Observable<Proveedor> {
-    return this.http.put<Proveedor>(`${this.url}/${id}`, proveedor);
+    return this.http.put<Proveedor>(`${this.apiUrl}/${id}`, proveedor);
   }
 
   deleteProveedor(id: number): Observable<Proveedor> {
-    return this.http.delete<Proveedor>(`${this.url}/${id}`);
+    return this.http.delete<Proveedor>(`${this.apiUrl}/${id}`);
   }
   
 }

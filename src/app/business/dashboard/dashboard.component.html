@@ -93,7 +93,11 @@
               <div class="card-body p-4">
                 <div class="row">
                   <div class="col-8">
-                    <h5 class="card-title widget-card-title mb-3">Proveedores</h5>
+                    <h5 class="card-title widget-card-title mb-3">
+                      <a routerLink="/proveedores" class="list-group-item list-group-item-action" aria-current="true">
+                        Proveedores
+                      </a>
+                    </h5>
                     <h4 class="card-subtitle text-body-secondary m-0"> {{totalProveedores}} </h4>
                   </div>
                   <div class="col-4">
@@ -125,8 +129,12 @@
               <div class="card-body p-4">
                 <div class="row">
                   <div class="col-8">
-                    <h5 class="card-title widget-card-title mb-3">Entradas</h5>
-                    <h4 class="card-subtitle text-body-secondary m-0">786</h4>
+                    <h5 class="card-title widget-card-title mb-3">
+                      <a routerLink="/ubicaciones" class="list-group-item list-group-item-action" aria-current="true">
+                      Ubicaciones
+                      </a>
+                    </h5>
+                    <h4 class="card-subtitle text-body-secondary m-0"> {{ totalUbicaciones}} </h4>
                   </div>
                   <div class="col-4">
                     <div class="d-flex justify-content-end">
@@ -156,55 +164,6 @@
       </div>
     </section>
 
-    <!-- Section - Bootstrap Brain Component -->
-    <section class="pb-3 pb-md-4 pb-xl-5 bg-light">
-      <div class="container">
-        <div class="row gy-3 gy-md-4">
-          <div class="col-12 col-lg-6 col-xl-7">
-            <!-- Chart 1 - Bootstrap Brain Component -->
-            <div class="card widget-card border-light shadow-sm h-100">
-              <div class="card-body p-4">
-                <div class="d-block d-sm-flex align-items-center justify-content-between mb-3">
-                  <div class="mb-3 mb-sm-0">
-                    <h5 class="card-title widget-card-title">Sales Overview</h5>
-                  </div>
-                  <div>
-                    <select class="form-select text-secondary border-light-subtle">
-                      <option value="1">March 2023</option>
-                      <option value="2">April 2023</option>
-                      <option value="3">May 2023</option>
-                      <option value="4">June 2023</option>
-                    </select>
-                  </div>
-                </div>
-                <div id="bsb-chart-1"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-lg-6 col-xl-5">
-            <!-- Chart 4 - Bootstrap Brain Component -->
-            <div class="card widget-card border-light shadow-sm h-100">
-              <div class="card-body p-4">
-                <div class="d-block d-sm-flex align-items-center justify-content-between mb-3">
-                  <div class="mb-3 mb-sm-0">
-                    <h5 class="card-title widget-card-title">Department Sales</h5>
-                  </div>
-                  <div>
-                    <select class="form-select text-secondary border-light-subtle">
-                      <option value="1">March 2023</option>
-                      <option value="2">April 2023</option>
-                      <option value="3">May 2023</option>
-                      <option value="4">June 2023</option>
-                    </select>
-                  </div>
-                </div>
-                <div id="bsb-chart-4"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Section - Bootstrap Brain Component -->
     <section class="pb-3 pb-md-4 pb-xl-5 bg-light">
@@ -214,39 +173,39 @@
             <!-- Timeline 8 - Bootstrap Brain Component -->
             <div class="card widget-card bsb-timeline-8 border-light shadow-sm h-100">
               <div class="card-body p-4">
-                <h5 class="card-title widget-card-title mb-3">Recent Transactions</h5>
+                <h5 class="card-title widget-card-title mb-3">Movimientos Recientes</h5>
 
                 <ul class="timeline">
                   <li class="timeline-item">
                     <div class="timeline-body">
                       <div class="timeline-meta">
-                        <span>32 minutes</span>
+                        <span>Entrada</span>
                       </div>
                       <div class="timeline-content timeline-indicator">
-                        <h6 class="mb-1">Amount received in the PayPal gateway.</h6>
-                        <span class="text-secondary fs-7">User: William Lucas</span>
+                        <h6 class="mb-1">Ubicación: --</h6>
+                        <span class="text-secondary fs-7">Usuario: ---</span>
                       </div>
                     </div>
                   </li>
                   <li class="timeline-item">
                     <div class="timeline-body">
                       <div class="timeline-meta">
-                        <span>49 minutes</span>
+                        <span>Salida</span>
                       </div>
                       <div class="timeline-content timeline-indicator">
-                        <h6 class="mb-1">New sale recorded in the Bootstrap admin templates.</h6>
-                        <span class="text-secondary fs-7">Product: Console</span>
+                        <h6 class="mb-1">Ubicación: ----</h6>
+                        <span class="text-secondary fs-7">Usuario: ----</span>
                       </div>
                     </div>
                   </li>
                   <li class="timeline-item">
                     <div class="timeline-body">
                       <div class="timeline-meta">
-                        <span>2 hours</span>
+                        <span>Entrada</span>
                       </div>
                       <div class="timeline-content timeline-indicator">
-                        <h6 class="mb-1">User registered in the discount campaign.</h6>
-                        <span class="text-secondary fs-7">Country: United States</span>
+                        <h6 class="mb-1">Proveedor: --- </h6>
+                        <span class="text-secondary fs-7">Usuario: ---</span>
                       </div>
                     </div>
                   </li>
@@ -255,189 +214,10 @@
             </div>
           </div>
           <div class="col-12 col-lg-6 col-xl-7">
-            <!-- Map 2 - Bootstrap Brain Component -->
-            <div class="card widget-card border-light shadow-sm h-100">
-              <div class="card-body p-4">
-                <div class="d-block d-sm-flex align-items-center justify-content-between mb-3">
-                  <div class="mb-2 mb-sm-0">
-                    <h5 class="card-title widget-card-title m-0">Global Sales Overview</h5>
-                  </div>
-                  <div>
-                    <span class="text-secondary fs-7">Last updated: 7 days ago</span>
-                  </div>
-                </div>
-                <div id="bsb-map-2" class="bsb-jvm-zoom-btn"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section - Bootstrap Brain Component -->
-    <section class="pb-3 pb-md-4 pb-xl-5 bg-light">
-      <div class="container">
-        <div class="row gy-3 gy-md-4">
-          <div class="col-12 col-lg-6 col-xl-7">
-            <!-- Chart 3 - Bootstrap Brain Component -->
-            <div class="card widget-card border-light shadow-sm h-100">
-              <div class="card-body p-4">
-                <h5 class="card-title widget-card-title mb-3">Revenue Stats</h5>
-                <div id="bsb-chart-3"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-lg-6 col-xl-5">
-            <!-- Card 2 - Bootstrap Brain Component -->
-            <div class="card widget-card border-light shadow-sm h-100">
-              <div class="card-body p-4">
-                <h5 class="card-title widget-card-title mb-4">Payment Overview</h5>
-                <div class="row gy-4">
-                  <div class="col-12">
-                    <div class="row align-items-center">
-                      <div class="col-8">
-                        <div class="d-flex align-items-center">
-                          <div>
-                            <div class="fs-5 bsb-w-50 bsb-h-50 bg-primary-subtle text-primary rounded-2 d-flex align-items-center justify-content-center me-3">
-                              <i class="bi bi-paypal"></i>
-                            </div>
-                          </div>
-                          <div>
-                            <h6 class="m-0">PayPal</h6>
-                            <p class="text-secondary m-0 fs-7">Funds Received</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-4">
-                        <h6 class="text-end">$5,432</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="row align-items-center">
-                      <div class="col-8">
-                        <div class="d-flex align-items-center">
-                          <div>
-                            <div class="fs-5 bsb-w-50 bsb-h-50 bg-primary-subtle text-primary rounded-2 d-flex align-items-center justify-content-center me-3">
-                              <i class="bi bi-stripe"></i>
-                            </div>
-                          </div>
-                          <div>
-                            <h6 class="m-0">Stripe</h6>
-                            <p class="text-secondary m-0 fs-7">Invoice Paid</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-4">
-                        <h6 class="text-end">$325</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="row align-items-center">
-                      <div class="col-8">
-                        <div class="d-flex align-items-center">
-                          <div>
-                            <div class="fs-5 bsb-w-50 bsb-h-50 bg-primary-subtle text-primary rounded-2 d-flex align-items-center justify-content-center me-3">
-                              <i class="bi bi-credit-card-fill"></i>
-                            </div>
-                          </div>
-                          <div>
-                            <h6 class="m-0">Credit Card</h6>
-                            <p class="text-secondary m-0 fs-7">Top Up</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-4">
-                        <h6 class="text-end">$99</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="row align-items-center">
-                      <div class="col-8">
-                        <div class="d-flex align-items-center">
-                          <div>
-                            <div class="fs-5 bsb-w-50 bsb-h-50 bg-primary-subtle text-primary rounded-2 d-flex align-items-center justify-content-center me-3">
-                              <i class="bi bi-bank2"></i>
-                            </div>
-                          </div>
-                          <div>
-                            <h6 class="m-0">Bank</h6>
-                            <p class="text-secondary m-0 fs-7">Check Deposited</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-4">
-                        <h6 class="text-end">$2,432</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="row align-items-center">
-                      <div class="col-8">
-                        <div class="d-flex align-items-center">
-                          <div>
-                            <div class="fs-5 bsb-w-50 bsb-h-50 bg-primary-subtle text-primary rounded-2 d-flex align-items-center justify-content-center me-3">
-                              <i class="bi bi-wallet-fill"></i>
-                            </div>
-                          </div>
-                          <div>
-                            <h6 class="m-0">Wallet</h6>
-                            <p class="text-secondary m-0 fs-7">Bill Payment</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-4">
-                        <h6 class="text-end">$750</h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="row align-items-center">
-                      <div class="col-8">
-                        <div class="d-flex align-items-center">
-                          <div>
-                            <div class="fs-5 bsb-w-50 bsb-h-50 bg-primary-subtle text-primary rounded-2 d-flex align-items-center justify-content-center me-3">
-                              <i class="bi bi-arrow-up-left-circle-fill"></i>
-                            </div>
-                          </div>
-                          <div>
-                            <h6 class="m-0">Refund</h6>
-                            <p class="text-secondary m-0 fs-7">Case Closed</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-4">
-                        <h6 class="text-end">$289</h6>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section - Bootstrap Brain Component -->
-    <section class="pb-3 pb-md-4 pb-xl-5 bg-light">
-      <div class="container">
-        <div class="row gy-3 gy-md-4">
-          <div class="col-12 col-lg-6 col-xl-5">
-            <!-- Calendar 1 - Bootstrap Brain Component -->
-            <div class="card widget-card border-light shadow-sm h-100">
-              <div class="card-body p-4">
-                <div id="bsb-calendar-1" class="fc fc-media-screen fc-direction-ltr fc-theme-bootstrap5 bsb-calendar-theme"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-lg-6 col-xl-7">
             <!-- Table 1 - Bootstrap Brain Component -->
             <div class="card widget-card border-light shadow-sm h-100">
               <div class="card-body p-4">
-                <h5 class="card-title widget-card-title mb-4">Monthly Transactions</h5>
+                <h5 class="card-title widget-card-title mb-4">Ordenes de Compra</h5>
                 <div class="table-responsive">
                   <table class="table table-borderless bsb-table-xl text-nowrap align-middle m-0">
                     <thead>
@@ -531,6 +311,8 @@
         </div>
       </div>
     </section>
+
+
 
   </main>
 

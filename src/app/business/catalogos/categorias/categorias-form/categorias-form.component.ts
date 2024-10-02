@@ -10,28 +10,86 @@ import { Categoria } from '../../../../core/models/categoria.modelo';
   styleUrl: './categorias-form.component.css'
 })
 export class CategoriasFormComponent {
-  categorias: Categoria[] = [];
+  categoriaForm!: FormGroup;
+  isEdit: boolean = false;
+  categoriaId!: number;
 
-  constructor(private categoriaService: CategoriaService
-  ) { }
+  constructor(
+    private fb: FormBuilder,
+    private categoriaService: CategoriaService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.categoriaService.getCategorias().subscribe((data: Categoria[]) => {
-      this.categorias = data;
+    this.initForm();
+    this.checkIfEdit();
+  }
+
+  // Inicializa el formulario reactivo
+  initForm(): void {
+    this.categoriaForm = this.fb.group({
+      nombreCategoria: ['', Validators.required],
+      descripcionCategoria: ['', Validators.required]
     });
   }
 
-  onDelete(id: number): void {
-    if (confirm('¿Estás seguro de que deseas eliminar este Categoria?')) {
-      this.categoriaService.deleteCategoria(id).subscribe(
-        (response) => {
-          console.log('Categoria eliminada exitosamente');
-          // Filtrar la lista de proveedores en el componente
-          this.categorias = this.categorias.filter(categoria => categoria.idCategoria !== id);
+  // Revisa si hay un parámetro de ID, indicando que es una edición
+  checkIfEdit(): void {
+    this.route.paramMap.subscribe((params) => {
+      const id = params.get('id');
+      if (id) {
+        this.isEdit = true;
+        this.categoriaId = +id;
+        this.categoriaService
+          .getCategoriaById(this.categoriaId)
+          .subscribe((categoria: Categoria) => {
+            this.categoriaForm.patchValue({
+              nombreCategoria: categoria.nombreCategoria,
+              descripcionCategoria: categoria.descripcionCategoria  
+            });
+          });
+      }
+    });
+  }
 
+  // Método que se ejecuta al enviar el formulario
+  onSubmit(): void {
+    // Verificar si el formulario es válido
+    if (this.categoriaForm.invalid) {
+      return; // Si el formulario no es válido, detener el envío
+    }
+
+    // Crear el objeto proveedor a partir del formulario
+    const categoria: Categoria = {
+      idCategoria: this.categoriaId ? this.categoriaId : 0, // Si estamos editando, asignar el ID
+      nombreCategoria: this.categoriaForm.value.nombreCategoria,
+      descripcionCategoria: this.categoriaForm.value.descripcionCategoria
+    };
+
+    // Verificar si estamos en modo edición o creación
+    if (this.isEdit) {
+      // Modo edición: pasamos el ID como parámetro a update
+      this.categoriaService
+        .updateCategoria(categoria.idCategoria, categoria)
+        .subscribe(
+          (response) => {
+            console.log('Categoria actualizada exitosamente:', response);
+            this.router.navigate(['/categorias']); // Redireccionar a la lista de categorias
+          },
+          (error) => {
+            console.error('Error al actualizar la Categoria:', error);
+          }
+        );
+    } else {
+      // Modo creación: creamos uno nuevo 
+      this.categoriaService.createCategoria(categoria).subscribe(
+        (response) => {
+          console.log('Categoria creada exitosamente:', response);
+          this.router.navigate(['/categorias']); // Redireccionar a la lista 
         },
         (error) => {
-          console.error('Error al eliminar la Categoria:', error);
+          console.error('Error al crear la Categoria:', error);
         }
       );
     }

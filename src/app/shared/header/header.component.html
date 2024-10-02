@@ -1,3 +1,4 @@
+<div class="py-2 txt-bg-verde text-center">     </div>
 <header id="header" class="border-bottom border-light-subtle sticky-top bsb-tpl-header-sticky">
     <nav class="navbar navbar-expand-md bsb-navbar-3 bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
       <div class="container">
@@ -18,7 +19,7 @@
           <ul class="navbar-nav bsb-dropdown-menu-responsive ms-auto align-items-center">
 
             
-            <li class="nav-item dropdown">
+            <li *ngIf="userLoginOn" class="nav-item dropdown">
               <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable text-white" href="#" role="button"  aria-expanded="false">
                 <span class="position-relative">
                   <i class="bi bi-boxes"> Inventario</i>
@@ -26,7 +27,7 @@
               </a>
             </li>
 
-            <li class="nav-item dropdown">
+            <li *ngIf="userLoginOn" class="nav-item dropdown">
               <a routerLink="/proveedores" class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable text-white" role="button"  aria-expanded="false">
                 <span class="position-relative">
                   <i class="bi bi-person-lines-fill"> Proveedores</i>
@@ -34,19 +35,14 @@
               </a>
             </li>
 
-            <li class="nav-item dropdown">
+            <li *ngIf="userLoginOn" class="nav-item dropdown">
               <a  class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="position-relative">
                   <i class="bi bi-journals"> Catálogos</i>
                 </span>
               </a>
               <div class="dropdown-menu dropdown-menu-md-end bsb-dropdown-sm bsb-dropdown-animation bsb-fadeIn">
-                <div>
-                  <h6 class="dropdown-header fs-7 text-center">Multilingual</h6>
-                </div>
-                <div>
-                  <hr class="dropdown-divider mb-0">
-                </div>
+                
                 <div class="list-group list-group-flush">
                   <a routerLink="/categorias" class="list-group-item list-group-item-action" aria-current="true">
                     <div class="row g-0 align-items-center">
@@ -109,113 +105,15 @@
                     </div>
                   </a>
                 </div>
-                <div>
-                  <hr class="dropdown-divider mt-0">
-                </div>
-                <div>
-                  <a class="dropdown-item fs-7 text-center" href="#!">See All Languages</a>
-                </div>
+                
               </div>
             </li>
             
             
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="position-relative">
-                  <i class="bi bi-search"></i>
-                </span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-md-end bsb-dropdown-animation bsb-fadeIn">
-                <form class="row g-1 px-3 py-2 align-items-center">
-                  <div class="col-8">
-                    <label class="visually-hidden" for="inputSearchNavbar">Search</label>
-                    <input type="text" class="form-control" id="inputSearchNavbar">
-                  </div>
-                  <div class="col-4">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                  </div>
-                </form>
-              </div>
-            </li>
 
 
 
-
-
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="position-relative">
-                  <i class="bi bi-globe"></i>
-                </span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-md-end bsb-dropdown-sm bsb-dropdown-animation bsb-fadeIn">
-                <div>
-                  <h6 class="dropdown-header fs-7 text-center">Multilingual</h6>
-                </div>
-                <div>
-                  <hr class="dropdown-divider mb-0">
-                </div>
-                <div class="list-group list-group-flush">
-                  <a href="#!" class="list-group-item list-group-item-action" aria-current="true">
-                    <div class="row g-0 align-items-center">
-                      <div class="col-2">
-                        <img src="./assets/img/translation/flag-img-1.svg" class="img-fluid rounded-pill" alt="Arabic">
-                      </div>
-                      <div class="col-10">
-                        <div class="ps-3">
-                          <div class="fs-7">Arabic</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#!" class="list-group-item list-group-item-action" aria-current="true">
-                    <div class="row g-0 align-items-center">
-                      <div class="col-2">
-                        <img src="./assets/img/translation/flag-img-2.svg" class="img-fluid rounded-pill" alt="Chinese">
-                      </div>
-                      <div class="col-10">
-                        <div class="ps-3">
-                          <div class="fs-7">Chinese</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#!" class="list-group-item list-group-item-action active" aria-current="true">
-                    <div class="row g-0 align-items-center">
-                      <div class="col-2">
-                        <img src="./assets/img/translation/flag-img-3.svg" class="img-fluid rounded-pill" alt="English">
-                      </div>
-                      <div class="col-10">
-                        <div class="ps-3">
-                          <div class="fs-7">English</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <a href="#!" class="list-group-item list-group-item-action" aria-current="true">
-                    <div class="row g-0 align-items-center">
-                      <div class="col-2">
-                        <img src="./assets/img/translation/flag-img-4.svg" class="img-fluid rounded-pill" alt="French">
-                      </div>
-                      <div class="col-10">
-                        <div class="ps-3">
-                          <div class="fs-7">French</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div>
-                  <hr class="dropdown-divider mt-0">
-                </div>
-                <div>
-                  <a class="dropdown-item fs-7 text-center" href="#!">See All Languages</a>
-                </div>
-              </div>
-            </li>
-
-            <li class="nav-item dropdown">
+            <li *ngIf="userLoginOn" class="nav-item dropdown">
               <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="position-relative pt-1">
                   <i class="bi bi-chat-left"></i>
@@ -269,8 +167,9 @@
                   <a class="dropdown-item fs-7 text-center" href="#!">See All Messages</a>
                 </div>
               </div>
-            </li>
-            <li class="nav-item dropdown">
+            </li> 
+            
+            <li *ngIf="userLoginOn" class="nav-item dropdown">
               <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="position-relative pt-1">
                   <i class="bi bi-bell"></i>
@@ -325,7 +224,8 @@
                 <li><a class="dropdown-item fs-7 text-center" href="#!">See All Notifications</a></li>
               </ul>
             </li>
-            <li class="nav-item dropdown">
+            
+            <li *ngIf="userLoginOn"  class="nav-item dropdown">
               <a class="nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="./assets/img/profile/profile-img-1.jpg" width="35" height="35" class="img-fluid rounded-circle" alt="Ethan Leo">
               </a>

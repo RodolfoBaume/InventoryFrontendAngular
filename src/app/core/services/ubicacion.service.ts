@@ -8,27 +8,27 @@ import { Ubicacion } from '../models/ubicacion.modelo';
 })
 export class UbicacionService {
 
-  private url = 'http://localhost:8080/api/ubicaciones';
+  private apiUrl = 'http://localhost:8080/api/ubicaciones';
 
   constructor(private http: HttpClient) { }
 
   getUbicaciones(): Observable<Ubicacion[]> {
-    return this.http.get<Ubicacion[]>(this.url);
+    return this.http.get<Ubicacion[]>(this.apiUrl);
   }
 
   getUbicacionById(id: number): Observable<Ubicacion> {
-    return this.http.get<Ubicacion>(`${this.url}/${id}`);
+    return this.http.get<Ubicacion>(`${this.apiUrl}/${id}`);
   }
 
   createUbicacion(ubicacion: Ubicacion): Observable<Ubicacion> {
-    return this.http.post<Ubicacion>(this.url, ubicacion);
+    return this.http.post<Ubicacion>(this.apiUrl, ubicacion);
   }
 
   updateUbicacion(id: number, ubicacion: Ubicacion): Observable<Ubicacion> {
-    return this.http.put<Ubicacion>(`${this.url}/${id}`, ubicacion);
+    return this.http.put<Ubicacion>(`${this.apiUrl}/${id}`, ubicacion);
   }
 
   deleteUbicacion(id: number): Observable<Ubicacion> {
-    return this.http.delete<Ubicacion>(`${this.url}/${id}`);
+    return this.http.delete<Ubicacion>(`${this.apiUrl}/${id}`);
   }
 }

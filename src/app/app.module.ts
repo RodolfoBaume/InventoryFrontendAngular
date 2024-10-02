@@ -11,15 +11,17 @@ import { ReportesComponent } from './business/reportes/reportes.component';
 import { ProductosComponent } from './business/productos/productos.component';
 import { UsuariosComponent } from './business/usuarios/usuarios.component';
 import { ProveedoresComponent } from './business/proveedores/proveedor-list/proveedores.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ProveedorFormComponent } from './business/proveedores/proveedor-form/proveedor-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoriasFormComponent } from './business/catalogos/categorias/categorias-form/categorias-form.component';
 import { CategoriasListComponent } from './business/catalogos/categorias/categorias-list/categorias-list.component';
 import { UbicacionesListComponent } from './business/catalogos/ubicaciones/ubicaciones-list/ubicaciones-list.component';
 import { UbicacionesFormComponent } from './business/catalogos/ubicaciones/ubicaciones-form/ubicaciones-form.component';
 import { EstatusOrdenListComponent } from './business/catalogos/estatusOrden/estatus-orden-list/estatus-orden-list.component';
 import { EstatusOrdenFormComponent } from './business/catalogos/estatusOrden/estatus-orden-form/estatus-orden-form.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthInterceptor } from './core/interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,15 +40,20 @@ import { EstatusOrdenFormComponent } from './business/catalogos/estatusOrden/est
     UbicacionesListComponent,
     UbicacionesFormComponent,
     EstatusOrdenListComponent,
-    EstatusOrdenFormComponent
+    EstatusOrdenFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

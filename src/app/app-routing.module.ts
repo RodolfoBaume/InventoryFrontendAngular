@@ -12,25 +12,28 @@ import { UbicacionesListComponent } from './business/catalogos/ubicaciones/ubica
 import { UbicacionesFormComponent } from './business/catalogos/ubicaciones/ubicaciones-form/ubicaciones-form.component';
 import { EstatusOrdenListComponent } from './business/catalogos/estatusOrden/estatus-orden-list/estatus-orden-list.component';
 import { EstatusOrdenFormComponent } from './business/catalogos/estatusOrden/estatus-orden-form/estatus-orden-form.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthGuard } from './core/guard/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'productos', component: ProductosComponent },
-  { path: 'proveedores', component: ProveedoresComponent },
-  { path: 'proveedores/create', component: ProveedorFormComponent },
-  { path: 'proveedores/edit/:id', component: ProveedorFormComponent },
-  { path: 'categorias', component: CategoriasListComponent},
-  { path: 'categorias/create', component: CategoriasFormComponent},
-  { path: 'categorias/edit/:id', component: CategoriasFormComponent},
-  { path: 'ubicaciones', component: UbicacionesListComponent},
-  { path: 'ubicaciones/create', component: UbicacionesFormComponent},
-  { path: 'ubicaciones/edit/:id', component: UbicacionesFormComponent},
-  { path: 'estatusOrdenes', component: EstatusOrdenListComponent },
-  { path: 'estatusOrdenes/create', component: EstatusOrdenFormComponent},
-  { path: 'estatusOrdenes/edit/:id', component: EstatusOrdenFormComponent },
-  { path: 'reportes', component: ReportesComponent },
-  { path: 'usuarios', component: UsuariosComponent }
+  { path: 'proveedores', component: ProveedoresComponent, canActivate: [AuthGuard]  },
+  { path: 'proveedores/create', component: ProveedorFormComponent, canActivate: [AuthGuard] },
+  { path: 'proveedores/edit/:id', component: ProveedorFormComponent, canActivate: [AuthGuard] },
+  { path: 'categorias', component: CategoriasListComponent, canActivate: [AuthGuard]},
+  { path: 'categorias/create', component: CategoriasFormComponent, canActivate: [AuthGuard]},
+  { path: 'categorias/edit/:id', component: CategoriasFormComponent, canActivate: [AuthGuard]},
+  { path: 'ubicaciones', component: UbicacionesListComponent, canActivate: [AuthGuard]},
+  { path: 'ubicaciones/create', component: UbicacionesFormComponent, canActivate: [AuthGuard]},
+  { path: 'ubicaciones/edit/:id', component: UbicacionesFormComponent, canActivate: [AuthGuard]},
+  { path: 'estatusOrdenes', component: EstatusOrdenListComponent , canActivate: [AuthGuard]},
+  { path: 'estatusOrdenes/create', component: EstatusOrdenFormComponent, canActivate: [AuthGuard]},
+  { path: 'estatusOrdenes/edit/:id', component: EstatusOrdenFormComponent , canActivate: [AuthGuard]},
+  { path: 'reportes', component: ReportesComponent, canActivate: [AuthGuard] },
+  { path: 'usuarios', component: UsuariosComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
